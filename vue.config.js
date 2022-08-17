@@ -3,7 +3,7 @@ module.exports = {
     port: '8000', // 本地项目启动默认端口
     open: true, // 启动项目时是否自动打开页面
     proxy: {
-      // 请求代理地址(仅开发环境有效)
+      // 请求代理地址
       '/api': {
         target: 'https://api.kinxpeng.com:3000/', //目标地址
         ws: true, //是否代理websocket
