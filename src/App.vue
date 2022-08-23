@@ -2,9 +2,9 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <a href="https://github.com/KinXpeng/vue2-demo" target="_blank">项目github地址</a>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 

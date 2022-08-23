@@ -36,7 +36,56 @@
 
       
 
-- ...
+- 封装多用查询条件组件，可根据不同的 `type` 显示不同的组件，详情：[在vue中封装多用查询条件组件，根据不同的type显示不同的组件](https://juejin.cn/post/).
+
+  - 封装项目目录：`/src/components/searchCondition.vue`
+
+  - 使用方法：
+
+    ```js
+    // 引入组件并声明
+    import SearchCondition from "@/components/searchCondition.vue";
+    export default {
+      components: {
+        SearchCondition,
+      },
+    }
+    ```
+
+    ```html
+    <!--  使用 --> 
+    <p># input输入框</p>
+    <SearchCondition v-model="inputValue" type="input" />
+      
+    <p># select下拉框</p>
+    <SearchCondition
+    v-model="selectValue"
+    type="select"
+    :options="options"
+    :option="{ code: 'code', name: 'name' }"
+    />
+      
+    <p># mul_select下拉框</p>
+    <SearchCondition
+    v-model="mulSelectValue"
+    type="mul_select"
+    :options="options"
+    :option="{ code: 'code', name: 'name' }"
+    />
+      
+    <p># time时间选择</p>
+    <SearchCondition v-model="timeValue" type="time" />
+      
+    <p># date日期选择</p>
+    <SearchCondition v-model="dateValue" type="date" />
+      
+    <p># datetime日期时间选择</p>
+    <SearchCondition v-model="dateTimeValue" type="datetime" />
+    ```
+
+  - 1
+
+- 111
 
 ## Project setup
 ```
