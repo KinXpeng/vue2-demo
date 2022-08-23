@@ -1,12 +1,14 @@
 # vue2-demo
 
-### 关于demo的一些例子
+### [演示地址](https://kinxpeng.github.io/vue2-demo)
 
-- 下拉分页远程搜索 `/src/components/remoteSelect.vue`，详情：[在vue中封装多功能select，支持分页查询，远程搜索以及数据反显！](https://juejin.cn/post/7131988369428447269).
+### 关于 demo 的一些例子
+
+- 下拉分页远程搜索 `/src/components/remoteSelect.vue`，详情：[在 vue 中封装多功能 select，支持分页查询，远程搜索以及数据反显！](https://juejin.cn/post/7131988369428447269).
 
   - 关于后端接口
 
-    - 目前可把git上的项目clone到本地运行查看效果，暂不支持在线预览。
+    - 目前可把 git 上的项目 clone 到本地运行查看效果，暂不支持在线预览。
 
   - 接口配置
 
@@ -34,9 +36,7 @@
       }
       ```
 
-      
-
-- 封装多用查询条件组件，可根据不同的 `type` 显示不同的组件，详情：[在vue中封装多用查询条件组件，根据不同的type显示不同的组件](https://juejin.cn/post/).
+- 封装多用查询条件组件，可根据不同的 `type` 显示不同的组件，详情：[在 vue 中封装多用查询条件组件，根据不同的 type 显示不同的组件](https://juejin.cn/post/7134991654309593101).
 
   - 封装项目目录：`/src/components/searchCondition.vue`
 
@@ -44,41 +44,31 @@
 
     ```js
     // 引入组件并声明
-    import SearchCondition from "@/components/searchCondition.vue";
+    import SearchCondition from '@/components/searchCondition.vue';
     export default {
       components: {
         SearchCondition,
       },
-    }
+    };
     ```
 
     ```html
-    <!--  使用 --> 
+    <!--  使用 -->
     <p># input输入框</p>
     <SearchCondition v-model="inputValue" type="input" />
-      
+
     <p># select下拉框</p>
-    <SearchCondition
-    v-model="selectValue"
-    type="select"
-    :options="options"
-    :option="{ code: 'code', name: 'name' }"
-    />
-      
+    <SearchCondition v-model="selectValue" type="select" :options="options" :option="{ code: 'code', name: 'name' }" />
+
     <p># mul_select下拉框</p>
-    <SearchCondition
-    v-model="mulSelectValue"
-    type="mul_select"
-    :options="options"
-    :option="{ code: 'code', name: 'name' }"
-    />
-      
+    <SearchCondition v-model="mulSelectValue" type="mul_select" :options="options" :option="{ code: 'code', name: 'name' }" />
+
     <p># time时间选择</p>
     <SearchCondition v-model="timeValue" type="time" />
-      
+
     <p># date日期选择</p>
     <SearchCondition v-model="dateValue" type="date" />
-      
+
     <p># datetime日期时间选择</p>
     <SearchCondition v-model="dateTimeValue" type="datetime" />
     ```
@@ -88,24 +78,29 @@
 - 111
 
 ## Project setup
+
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 npm run serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 npm run build
 ```
 
 ### Lints and fixes files
+
 ```
 npm run lint
 ```
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).

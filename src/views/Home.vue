@@ -12,7 +12,11 @@
     />
     <h3>2. 通用查询条件组件，通过type控制</h3>
     <p># input输入框</p>
-    <SearchCondition v-model="inputValue" type="input" />
+    <SearchCondition
+      v-model="inputValue"
+      type="input"
+      :config="{ placeholder: '请输入名称', size: 'mini' }"
+    />
     <p># select下拉框</p>
     <SearchCondition
       v-model="selectValue"
