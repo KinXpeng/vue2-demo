@@ -22,7 +22,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'hash',
-  base: process.env.NODE_ENV === 'production' ? '/docs' : '/',
+  base: process.env.BASE_URL,
   routes,
 });
 

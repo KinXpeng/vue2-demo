@@ -1,5 +1,9 @@
 <template>
   <div class="about">
+    <div class="button-fold">
+      <el-button type="primary" size="mini" @click="handleClearContent">清空</el-button>
+      <el-button type="primary" size="mini" @click="handleSaveContent">保存</el-button>
+    </div>
     <TinyEditor
       ref="editor"
       v-model="value"
@@ -41,3 +45,9 @@ export default {
   mounted() {},
 };
 </script>
+
+<style lang="scss" scoped>
+.button-fold {
+  margin: 10px auto;
+}
+</style>

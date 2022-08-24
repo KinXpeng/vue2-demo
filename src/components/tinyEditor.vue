@@ -91,16 +91,10 @@ export default {
   data() {
     return {
       init: {
-        language_url:
-          this.$axios.defaults.baseURL + process.env.NODE_ENV === "production"
-            ? this.$router.options.base
-            : "" + "tinymce/langs/zh-Hans.js", //引入语言包文件
+        language_url: "tinymce/langs/zh-Hans.js", //引入语言包文件
         language: "zh-Hans", //语言类型
 
-        skin_url:
-          this.$axios.defaults.baseURL + process.env.NODE_ENV === "production"
-            ? this.$router.options.base
-            : "" + "tinymce/skins/ui/oxide", //皮肤：浅色
+        skin_url: "tinymce/skins/ui/oxide", //皮肤：浅色
         // skin_url: '/tinymce/skins/ui/oxide-dark',//皮肤：暗色
 
         plugins: this.plugins, //插件配置
