@@ -9,13 +9,15 @@ import './directives'; // 自定义指令
 
 import axios from 'axios';
 Vue.prototype.$axios = axios;
+let url = window.location.href.split('/');
+let baseUrl = url[0] + '//' + url[2];
 // 判断环境为生产环境还是开发环境
 if (process.env.NODE_ENV === 'production') {
   // 生产环境
   if (process.env.VUE_APP_FLAG === 'pro') {
-    axios.defaults.baseURL = 'https://api.kinxpeng.com:3000/';
+    axios.defaults.baseURL = baseUrl;
   } else {
-    axios.defaults.baseURL = 'https://api.kinxpeng.com:3000/';
+    axios.defaults.baseURL = baseUrl;
   }
 } else {
   axios.defaults.baseURL = '/api'; // 开发环境

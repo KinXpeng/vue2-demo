@@ -75,7 +75,72 @@
 
   - 1
 
-- 111
+- tinymce富文本编辑器
+
+  - 前言：`TinyEditor` 封装为单独的组件，无需过多配置，在`src/components`中可见该组件（tinyEditor.vue），组件使用示例详见 `views/modulePage/richEditor.vue`。
+
+  - 插件安装
+
+    ```js
+    npm install tinymce@5.10.5 -S // 6以上的版本会报错
+    ```
+
+    ```js
+    npm install @tinymce/tinymce-vue@3.2.8 -S  // 此版本vue2可用
+    ```
+
+  - 注意事项
+
+    - 确保 `public`目录下有tinymce文件夹及其中的langs和skins目录，分别为语言环境和皮肤。
+
+    - 确保在`src/components`中有该组件（tinyEditor.vue）。
+
+  - 使用方法
+
+    - 在需要使用的vue文件中(宽高可根据需要配置)，引入组件：
+
+      ```js
+      // 注册富文本编辑器
+      import TinyEditor from '@/components/tinyEditor.vue';
+      
+      components:{
+        TinyEditor
+      }
+      ```
+
+      ```vue
+      /* template中 */
+      <el-button type="primary" size="mini" @click="handleClearContent">清空</el-button>
+      <el-button type="primary" size="mini" @click="handleSaveContent">保存</el-button>
+      <TinyEditor ref="editor" v-model="value" width="100%" height="400" @input="handleInput" />
+      
+      /* data中 */
+      data() {
+        return {
+        	value: "",
+        };
+      },
+      
+      /* methods中 */
+      // 输入
+      handleInput(value) {
+      	this.value = value;
+      },
+      
+      // 清空
+      handleClearContent() {
+      	this.$refs.editor.clear("");
+      },
+      
+      // 保存
+      handleSaveContent() {
+      	console.log(this.value);
+      },
+      ```
+
+    - 上述中的清空和保存事件需单独配置按钮来支持。
+
+  - 关于图片上传，目前默认为base64格式。
 
 ## Project setup
 

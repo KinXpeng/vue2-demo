@@ -37,6 +37,7 @@
     <SearchCondition v-model="dateValue" type="date" />
     <p># datetime日期时间选择</p>
     <SearchCondition v-model="dateTimeValue" type="datetime" />
+    <h3>3. <router-link to="/about">富文本编辑器</router-link></h3>
   </div>
 </template>
 
