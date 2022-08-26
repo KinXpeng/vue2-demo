@@ -1,13 +1,13 @@
 <template>
   <el-select
-    v-model="selectValue"
+    v-model="model"
     placeholder="请选择"
     size="mini"
     filterable
     clearable
     remote
     height="auto"
-    v-loadmore="loadMore" 
+    v-loadmore="loadMore"
     :loading="loading"
     :remote-method="remoteMethod"
     @change="handleValueChange"
@@ -26,10 +26,13 @@
 
 <script>
 export default {
-  name: 'RemoteSelect',
+  name: "RemoteSelect",
+  model: {
+    prop: "value",
+    event: "input",
+  },
   data() {
     return {
-      selectValue: "",
       loading: false,
       optionsSelect: [], // 搜索下拉框的数据
       opEntityToName: "", // 下拉框模糊查询
@@ -39,6 +42,10 @@ export default {
   },
   props: {
     value: {
+      type: [String, Number, Array, Object, Date],
+    },
+    // 默认回显数据
+    remoteValue: {
       type: Object,
       default: () => {
         return {};
@@ -69,6 +76,17 @@ export default {
           code: "optionCode",
           name: "optionName",
         };
+      },
+    },
+  },
+  computed: {
+    // 主要利用set来emit input 进行双向绑定 需要组件有input事件
+    model: {
+      get() {
+        return this.value || "";
+      },
+      set(v) {
+        this.$emit("input", v);
       },
     },
   },
@@ -109,11 +127,11 @@ export default {
           } else {
             this.optionsSelect.push(...res.data.data);
           }
-          if (Object.keys(this.value).length && !query) {
-            this.selectValue = this.value.code;
+          if (Object.keys(this.remoteValue).length && !query) {
+            this.model = this.remoteValue.code;
             this.optionsSelect.unshift({
-              [this.option.code]: this.value.code,
-              [this.option.name]: this.value.name,
+              [this.option.code]: this.remoteValue.code,
+              [this.option.name]: this.remoteValue.name,
             });
           }
           // 数组去重
@@ -135,9 +153,7 @@ export default {
     },
     // 监听查询的数据
     handleValueChange(value) {
-      if (value) {
-        this.$emit("updateValue", value);
-      } else {
+      if (!value) {
         this.srcollNum = 1;
         this.opEntityToName = "";
         this.handleLikeSearch("");
@@ -145,7 +161,7 @@ export default {
     },
     // 下拉框出现 / 消失
     handleVisible(flag) {
-      if (flag && !this.selectValue) {
+      if (flag && !this.model) {
         this.srcollNum = 1;
         this.opEntityToName = "";
         this.handleLikeSearch("");
@@ -160,9 +176,8 @@ export default {
   mounted() {
     this.handleLikeSearch(); // 远程搜索加载下拉框数据
   },
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

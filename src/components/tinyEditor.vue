@@ -151,6 +151,12 @@ export default {
     },
     // 处理图片转换
     handleImgExchange(blobInfo, success) {
+      // let file = new File([blobInfo.blob()], blobInfo.blob().name, {
+      //   type: "text/plain",
+      //   lastModified: Date.now(),
+      // });
+
+      // console.log(file);
       let reader = new FileReader();
       reader.readAsDataURL(blobInfo.blob());
       reader.onload = function () {

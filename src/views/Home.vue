@@ -2,12 +2,12 @@
   <div class="home">
     <h3>1. 封装下拉分页远程搜索以及数据反显(需下载项目至本地查看效果)</h3>
     <RemoteSelect
-      :value="remoteValue"
+      :remoteValue="remoteValue"
       api="/test/select"
       optionName="optionName"
       :rows="10"
       :option="{ code: 'optionCode', name: 'optionName' }"
-      @updateValue="(v) => (remoteSelectValue = v)"
+      v-model="remoteSelectValue"
       @clear="() => (remoteValue = {})"
     />
     <h3>2. 通用查询条件组件，通过type控制</h3>
