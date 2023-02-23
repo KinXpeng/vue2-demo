@@ -22,6 +22,11 @@ const routes = [
 		path: '/downloadImg',
 		name: 'downloadImg',
 		component: () => import(/* webpackChunkName: "downloadImg" */ '../views/downloadImg.vue')
+	},
+	{
+		path: '/test',
+		name: 'test',
+		component: () => import(/* webpackChunkName: "downloadImg" */ '../views/test.vue')
 	}
 ]
 
