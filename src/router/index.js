@@ -21,12 +21,17 @@ const routes = [
 	{
 		path: '/downloadImg',
 		name: 'downloadImg',
-		component: () => import(/* webpackChunkName: "downloadImg" */ '../views/downloadImg.vue')
+		component: () => import(/* webpackChunkName: "downloadImg" */ '@/views/download/downloadImg.vue')
+	},
+	{
+		path: '/exportExcel',
+		name: 'exportExcel',
+		component: () => import(/* webpackChunkName: "exportExcel" */ '@/views/exportExcel/exportExcel.vue')
 	},
 	{
 		path: '/test',
 		name: 'test',
-		component: () => import(/* webpackChunkName: "downloadImg" */ '../views/test.vue')
+		component: () => import(/* webpackChunkName: "test" */ '../views/test.vue')
 	}
 ]
 

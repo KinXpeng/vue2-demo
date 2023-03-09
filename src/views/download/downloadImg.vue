@@ -1,6 +1,6 @@
 <template>
   <div ref="fulls">
-    <el-button @click="handlerAdd">按钮</el-button>
+    <el-button @click="handlerAdd">全屏</el-button>
     <el-button @click="handlerExit">关闭</el-button>
     <div class="download_img" ref="canvas">
       <img src="https://img0.baidu.com/it/u=2171411284,1924893541&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt="">

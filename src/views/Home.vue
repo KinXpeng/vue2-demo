@@ -22,6 +22,7 @@
     <h3>4. treeSelect封装</h3>
     <TreeSelect v-model="value" :data="list" style="width: 240px;" />
     <h3>5. <router-link to="/downloadImg">下载图片及文字</router-link></h3>
+    <h3>6. <router-link to="/exportExcel">导出表格</router-link></h3>
   </div>
 </template>
 
