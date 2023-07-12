@@ -29,6 +29,11 @@ const routes = [
 		component: () => import(/* webpackChunkName: "exportExcel" */ '@/views/exportExcel/exportExcel.vue')
 	},
 	{
+		path: '/transfer',
+		name: 'transfer',
+		component: () => import(/* webpackChunkName: "transfer" */ '@/views/transfer/transfer.vue')
+	},
+	{
 		path: '/test',
 		name: 'test',
 		component: () => import(/* webpackChunkName: "test" */ '../views/test.vue')
