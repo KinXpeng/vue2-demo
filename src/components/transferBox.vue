@@ -136,6 +136,7 @@ export default {
       this.groupList[index].list = this.groupList[index].list.filter(item => !item.selected)
       filterList.forEach(item => item.selected = false)
       this.transferList.push(...filterList)
+      this.transferList.sort((a, b) => a.id - b.id)
     },
 
     // 右箭头
@@ -144,6 +145,7 @@ export default {
       this.transferList = this.transferList.filter(item => !item.selected)
       filterList.forEach(item => item.selected = false)
       this.groupList[index].list.push(...filterList)
+      this.groupList[index].list.sort((a, b) => a.id - b.id)
     },
   },
   created() {
